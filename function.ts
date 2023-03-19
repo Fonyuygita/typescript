@@ -30,18 +30,43 @@ console.log(toUpperCase("hello welcome to typescript, full course"));
 
 //  EXAMPLE 3 : consider the signup 
 
-function signUp(name: string, email:string, isPaid: boolean){
-    // putting our function in this format functio signUp():number, will mean that it is returning a number which generate error, so we put string
-    // return `your name is ${name} your email is ${email} `;
-    return "hello, testing"
+// function signUp(name: string, email:string, isPaid: boolean){
+//     // putting our function in this format functio signUp():number, will mean that it is returning a number which generate error, so we put string
+//     // return `your name is ${name} your email is ${email} `;
+//     // return "hello, testing"
+
+// }
+
+// console.log(signUp("jude fonyuy", "jude@gmail.com", true));
+
+// function getValue(myVal:number):string{
+
+    // in this case, it is difficult to specify the return type as string and boolean, so we will see that in subsequent lessons
+//     if(myVal>5) return true
+//     return "200 OK"
+// }
+
+
+//  TYPES AND ARRAYS 
+
+// const heros=['messi', 'cr7', 'Muller', 'Neymar', 'Mbape'];
+
+// heros.map(hero=>{
+//     return `hero is ${hero};`
+//     // so if we hover across her, it is automatically giving us type of string so we don't need to specify the return type in this case: YOU CAN RETURN ANYTHING IN THIS CASE
+// })
+
+function consoleError(errmsg:string):void{
+    console.log(errmsg);
+}
+
+function handleHerror(ermsg:string):never{
+throw new Error(ermsg)
 
 }
 
-console.log(signUp("jude fonyuy", "jude@gmail.com", true));
-
-
-
-
+consoleError("hello jude")
+handleHerror("jude fonyuy")
 
 
 
