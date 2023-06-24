@@ -86,7 +86,6 @@ let MyNAme;
 
 
 // FUNCTIONS
-
 const sayHi=()=>{
     console.log("Hello, World");
     // this function returns a void, is not returning anything like number, string, or  boolean
@@ -106,7 +105,128 @@ let multiplyavoid=(num3):void=>{
     console.log("welcome");
 }
 
+let sum =(num1:number, num2:number, another?:number):number=>{
+    return num1+num2;
+}
 
+sum(12,45)
+
+let func=(user:{username:string, age:number, phone?:string})=>{
+    console.log(user.username);
+    console.log(user.age);
+    console.log(user.phone);
+}
+//  LET SEE HOW WE CAN MODIFY THE FUNCTION ABOVE USING TYPE ALIASES
+
+//  TYPE ALIASES
+
+type userType={
+    username:string,
+    age:number,
+    phone?:number
+}
+
+let newUser:userType={
+    username:"paul",
+    age:12,
+
+}
+
+let betterFunction=(user:userType)=>{
+    console.log(user.username);
+}
+
+
+let evenBetterFunction=(user:userType)=>{
+    console.log(user.username);
+}
+
+
+//  CREATING A FUNCTION SIGNATURE, ONE WE CAN USE TO CREATE OTHER FUNCTIONS
+
+
+type myFuncSignature=(score:number, name:string)=>void
+// it means that this function will only return void at the end of the day with params matricul and name anything apart from that wil be an error
+
+// how to use this function
+
+let write:myFuncSignature=(num, str)=>{
+    console.log(`${num} + ${str}`);
+}
+
+
+type userType2={
+    username:string,
+    age:number,
+    phone?:string,
+    theme:"dark"| "white"
+}
+
+
+const userWithTheme:userType2={
+    username:"luana",
+    age:12,
+    theme:"dark"
+}
+
+
+
+
+
+//  INTERFACES *(EXTENSION OF TYPES USUALLY WHEN YOU WANT TO CREATE OR EXTEND A TYPE)
+interface Iuser{
+    username:string,
+    email:string,
+    password:string,
+    age:number,
+    phone?:string
+
+}
+
+// let say some of this users are clients and some of them are employees, how can we create their own interfaces, we simply extend the user interface since all employees and clients are users
+
+interface IEmployee extends Iuser{
+    salary:number,
+    employeeId:number
+
+}
+
+const emp: IEmployee = {
+    username:"fongua",
+    email:"employee@gmail.com",
+    password:"343fmlvc",
+    age:23,
+    salary:23000,
+    employeeId:34
+}
+
+const client:Iuser={
+    username:"Angela",
+    email:"Angela@gmail.com",
+    password:"welcome",
+    age:34
+
+
+}
+
+//  GENERICS  IN TYPESCRIPT
+interface IAuthor{
+    id:number,
+    username:string
+}
+interface ICategory{
+    id:number,
+    title:string
+}
+
+
+interface Ipost{
+    id:number,
+    title:string,
+    desc:string,
+    // we can make use of generics as shown in the extra below
+    extra:
+}
 
 
 
