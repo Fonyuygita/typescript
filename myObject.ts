@@ -57,7 +57,11 @@ type User={
   readonly _id:string,
     name:string,
     email:string,
-    isActive:boolean
+    isActive:boolean,
+    creditCardDetails?:"welcome"
+    // question mark helps our credit card details to be optional
+
+    // address:{phone:string, location:string}
 }
 
 //  HOW TO USE IT
@@ -65,9 +69,20 @@ let myUser:User={
     _id:"3455",
     name:"fonyuy",
     email:"fonyuy@gmail.com",
-    isActive:true
-}
-const {_id, name, email, isActive}=myUser;
+    isActive:true,
+    // address:{
+    //     phone:"35566",
+    //     location:"center-bolt"
+    }
+// }
+// myUser._id="df" not possible because it is a read only property
+myUser.email="quamy@gmail.com"
+//  CODE DESTRUCTURING
+// const {_id, name, email, isActive}=myUser;
+// const {phone, location}=myUser.address
+
+
+
 console.log(name);
 
 function createAnotherUser(u:User){
@@ -78,5 +93,35 @@ function createAnotherUser(u:User){
 }
 
 createAnotherUser({_id:"4545", name:"storyTime", email:"anotherOne@gmail.com", isActive:true})
+
+
+//  COMBINATION OF TYPES
+type cardNumber={
+    cardnumber:string
+}
+
+type cardDate={
+    cardDate:string
+}
+
+type cardColor={
+cardColor:string
+}
+
+
+// combining the 3 types into one type, say cardDetails
+
+type cardDetails=cardNumber & cardDate & cardColor & {
+    cvv:number
+};
+
+let details:cardDetails={
+    cardnumber:"3454545",
+    cardDate:"welcome",
+    cardColor:"red",
+    cvv:3434
+    
+}
+
 
  export {}

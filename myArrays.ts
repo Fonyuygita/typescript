@@ -38,5 +38,9 @@ type User={
 
 const allUsers:User[]=[{name:"jude", isActive:false}]
 
+// allUsers.push("") error because it doesn't follow the protocol of type user
 
+const MlModel:number[][]=[
+    [123,34, 34],[343,454,54,5,6,65]
+]
 export {}

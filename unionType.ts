@@ -36,3 +36,14 @@ return `your name is not  jude, but ${name}`;
 }
 
 console.log(checkUser("paul"));
+
+function getDbId(id:number | string){
+    if(typeof id==="string"){
+        // we can only c heck for this before using string methods
+        id.toLowerCase()
+    }
+
+    // id.toString().toLowerCase()
+}
+
+export {}
