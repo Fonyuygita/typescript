@@ -225,11 +225,52 @@ interface Ipost{
     title:string,
     desc:string,
     // we can make use of generics as shown in the extra below
-    extra:
+    extra:ICategory[] | IAuthor[]
+}
+
+interface IPostBetter <T> {
+    id:number,
+    title:string,
+    desc:string,
+// what ever we are going to store into T later as argument is going to be stored an array in the property extra 
+
+    extra:T[]
 }
 
 
+const testMe:IPostBetter<String>={
+    id:1,
+    title:"kilometer",
+    desc:"post desc",
+    extra:['lionel', 'jude', 'last_string']
+}
 
+interface IpostEvenBetter<T extends object>{
+id: number,
+title:string,
+desc:string,
+extra:T[],
+
+
+}
+
+const testMe2: IpostEvenBetter<{id:number, username:string}>={
+    id:1,
+    title:"I post even better",
+    desc:"even better",
+    extra:[{id:1, username:"jude"}],
+
+}
+
+const testMe3: IpostEvenBetter<IAuthor>={
+    id:1,
+    title:"I post even better",
+    desc:"even better",
+    extra:[{id:1, username:"jude"}],
+
+}
+
+//  END OF GENERICS
 type namesOfAnimals={
 
 }
